@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: CIQDashboard-jiraZephyr-collector
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ciqdashboard_qa_2023
+
+      credents:
+      collection:
+        issue: Issues
+        execution: Test_Runs
+
+logging:
+  level:
+    com.cognizant.collector.jira.client.JiraClient: OFF
+
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
+
+scheduler:
+  cron: 0 0/1 * * * *
+  enable: true
+
+zephyrServer:
+  url: https://prod-api.zephyr4jiracloud.com/connect
+  accessKey: ZTI4MTBhMjYtNjVlYS0zYTViLWFlZGMtYzY3YTc4NDgyNzhiIDcxMjAyMCUzQTU0ZmU1Y2Q2LWEyZTItNGE5YS04NzEyLTEyMDIxNTIxNzE5YSBVU0VSX0RFRkFVTFRfTkFNRQ
+  secretKey: 6gwlCNQNSWV6m2YTr4aacGiNxApF8Ii8Wu8BcgLlp60
+
+jiraServer:
+  url: https://sparshs.atlassian.net/rest/api/latest
+  username: sparshs336@gmail.com
+  password: ATATT3xFfGF0dzay9CxkeMbMO-Kz1L5mGQc-1i2qAIifebrulBygWJ4L5FFswE_qp1YrUcdCQvlw6dbgMnYX5qNHTS4HUISuJ5VzSCoYe66rkFwuQLeRrM4hzuIbrYDPxL4Ix3mAPQl-ztrMqKUTGC58RMYdUUrOAgalxjGsLLpjgbuaUpQ1al8=791A0D43
+  projects: MMT , SAM
+server :
+  port: 8088
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    password: LeapSecurityKey
+    bean: JasyptEncryptorBean
